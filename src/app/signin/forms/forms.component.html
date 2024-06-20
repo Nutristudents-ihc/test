@@ -1,0 +1,65 @@
+<div class="form-container">
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form">
+
+    <mat-form-field class="user">
+      <mat-label>Nombre de usuario</mat-label>
+      <input matInput
+        placeholder="usuario1234"
+        formControlName="user"
+        (blur)="userErrorMessage()"
+        required>
+
+        <mat-error *ngIf="user.invalid">{{errorMessage}}</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="email">
+
+      <mat-label>Email</mat-label>
+      <input matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            (blur)="updateErrorMessage()"
+            required>
+            <mat-error *ngIf="email.invalid">{{errorMessage2}}</mat-error>
+
+    </mat-form-field>
+
+
+    <mat-form-field class="pass">
+      <mat-label>Ingresa tu contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        placeholder="pass123$asdf"
+        formControlName="pass"
+        (blur)="passErrorMessage()"
+        required>
+
+        <mat-error *ngIf="pass.invalid">{{errorMessage3}}</mat-error>
+
+        <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" type="button" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="pass">
+      <mat-label>Confirma tu contraseña</mat-label>
+      <input matInput [type]="hide2 ? 'password' : 'text'"
+        placeholder="pass123$asdf"
+        formControlName="confirmPass"
+        (blur)="passErrorMessage2()"
+        required>
+
+        <mat-error *ngIf="confirmPass.invalid">{{errorMessage4}}</mat-error>
+
+        <button mat-icon-button matSuffix (click)="clickEvent2($event)" [attr.aria-label]="'Hide password'" type="button" [attr.aria-pressed]="hide2">
+          <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+
+
+    <button mat-flat-button class="enviar" type="submit" [disabled]="registerForm.invalid" color="custom-color">ENTRAR</button>
+    <mat-error class="submit__error" *ngIf="!success">El usuario o el email ya pertenecen a una cuenta.</mat-error>
+  </form>
+</div>

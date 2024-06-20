@@ -1,0 +1,37 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="user">
+      <mat-label>Usuario o correo electrónico</mat-label>
+      <input matInput
+        placeholder="John Doe"
+        formControlName="user"
+        (blur)="userErrorMessage()"
+        required>
+      <mat-error *ngIf="user.invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="pass">
+      <mat-label>Ingresa tu contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'"
+        placeholder="pass123$asdf"
+        formControlName="pass"
+        (blur)="passErrorMessage()"
+        required>
+      <mat-error *ngIf="pass.invalid">{{errorMessage2}}</mat-error>
+
+      <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"  type="button" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="alternativas">
+      <a class="alternativas__enlace" title="Crea tu cuenta" [routerLink]="['../signin']" routerLinkActive="active">Aún no tengo cuenta</a>
+      <a class="alternativas__enlace" title="Cambia la contraseña" [routerLink]="['pass-recover']" routerLinkActive="active">Me olvidé la contraseña</a>
+    </div>
+
+    <button mat-flat-button class="enviar" type="submit" [disabled]="loginForm.invalid" color="custom-color">ENTRAR</button>
+
+    <mat-error class="error__formulario"*ngIf="!success">Usuario/email o contraseña incorrectos.</mat-error>
+  </form>
+</div>

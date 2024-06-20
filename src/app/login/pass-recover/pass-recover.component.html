@@ -1,0 +1,20 @@
+<div class="form-container">
+  <h1>RECUPERA LA CONTRASEÑA</h1>
+  <p>Si has olvidado la contraseña de tu cuenta, o no tienes acceso a ella, ingresa a continuación el correo electrónico que usaste para registrarte en PEAK.</p>
+  <form [formGroup]="recoverForm" class="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="email">
+      <mat-label>Ingresa tu email</mat-label>
+      <input matInput
+             placeholder="pat@example.com"
+             (blur)="updateErrorMessage()"
+             formControlName="email"
+             required>
+
+        <mat-error *ngIf="recoverForm.get('email')?.invalid">{{errorMessage}}</mat-error>
+    </mat-form-field>
+    <button class="enviar" mat-button type="submit" color="custom-color" [disabled]="recoverForm.invalid">Enviar</button>
+    <mat-error class="error__email" *ngIf="!success">Email no pertenece a ninguna cuenta.</mat-error>
+  </form>
+
+</div>
+

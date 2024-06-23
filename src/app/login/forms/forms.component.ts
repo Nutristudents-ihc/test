@@ -94,7 +94,8 @@ export class FormsComponent {
         if ((newAccount.email==this.accounts[i].email || newAccount.email==this.accounts[i].user) && newAccount.pass==this.accounts[i].pass) {
           console.log("Account encontrada");
           this.success=true;
-          this.authService.login();
+          const username = this.accounts[i].user;
+          this.authService.login(username);
           this.router.navigate([''])
         } else {
           console.log("Account no encontrada");

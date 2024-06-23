@@ -13,7 +13,6 @@ import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth_service/auth.service';
 
-
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
@@ -45,6 +44,7 @@ export class FormsComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.loadAcc();
+
   }
   accounts:loginResponse[] = [];
   loadAcc(){
@@ -93,17 +93,13 @@ export class FormsComponent {
       for (let i = 0; i < this.accounts.length; i++) {
         if ((newAccount.email==this.accounts[i].email || newAccount.email==this.accounts[i].user) && newAccount.pass==this.accounts[i].pass) {
           console.log("Account encontrada");
-          this.success=true;
           const username = this.accounts[i].user;
           this.authService.login(username);
           this.router.navigate([''])
-        } else {
-          console.log("Account no encontrada");
-          this.success=false;
-        }
-
       }
     }
+      this.success=false;
+      console.log("Account no encontrada");
 
   }
-}
+}}

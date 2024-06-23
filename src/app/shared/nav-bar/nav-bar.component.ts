@@ -28,8 +28,11 @@ export class NavBarComponent  {
     );
   }
 
+  ingresarPerfil(): void {
+    this.router.navigate(['perfil']); // Redirigir a la página de inicio después del logout
+  }
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']); // Redirigir a la página de inicio después del logout
+    this.router.navigate(['login']); // Redirigir a la página de inicio después del logout
   }
 }

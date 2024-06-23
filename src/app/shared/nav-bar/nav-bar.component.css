@@ -41,32 +41,53 @@ nav img {
 }
 
 .menu__item a {
-  color: #607C3C;
   transition-duration: 0.2s;
   font-weight: bold;
 }
+.menu__item_1 a {
+  color: #607C3C;
+}
 
+.menu__item_2 a {
+  background-color: #bd12127d;
+}
 .menu__item  a:hover{
-  background-color: #7cad6a;
   padding: 10px 20px;
   border-radius: 10px;
   display: flex;
   position: relative;
   top:-30%
 }
-.btn__sign_in{
+.menu__item_1 a:hover{
+  background-color: #7cad6a;
+}
+.menu__item_2 a:hover{
+  background-color: #67120ba1;
+}
+/*   -----------------------------------  */
+.btn{
   position: relative;
   color:#fff !important;
-  background-color: #95D907;
   font-weight: bolder;
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0 5px 10px 0 #000a;
   display: flex;
   margin-bottom:0px;
-  top:-30%
+  top:-30%;
+  cursor:pointer;
+}
+.btn__sign_in{
+  background-color: #95D907;
 }
 
 .btn__sign_in:hover{
   background-color: #7cad6a;
+}
+
+.btn__sign_out{
+  background-color: #bd12127d;
+}
+.btn__sign_out:hover{
+  background-color: #67120ba1;
 }

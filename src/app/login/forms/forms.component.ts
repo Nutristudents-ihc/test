@@ -11,6 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 import { loginResponse } from '../interface/login.interface';
 import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../auth_service/auth.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class FormsComponent {
  loginForm!: FormGroup;
   errorMessage = '';
 
-  constructor(private fb:FormBuilder,private loginSer:LoginService) {
+  constructor(private fb:FormBuilder,private loginSer:LoginService,private authService: AuthService) {
       merge(this.user.statusChanges, this.user.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.userErrorMessage())
@@ -93,6 +94,7 @@ export class FormsComponent {
         if ((newAccount.email==this.accounts[i].email || newAccount.email==this.accounts[i].user) && newAccount.pass==this.accounts[i].pass) {
           console.log("Account encontrada");
           this.success=true;
+          this.authService.login();
           this.router.navigate([''])
         } else {
           console.log("Account no encontrada");

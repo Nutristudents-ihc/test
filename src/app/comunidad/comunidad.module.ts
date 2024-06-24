@@ -9,6 +9,7 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatDialogActions } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatIcon } from '@angular/material/icon';
     BtnCrearComponent,
     HttpClientModule,
     MatCardModule, MatButtonModule,
-    MatIcon
+    MatIcon,
+    MatDialogActions
   ]
 })
 export class ComunidadModule { }

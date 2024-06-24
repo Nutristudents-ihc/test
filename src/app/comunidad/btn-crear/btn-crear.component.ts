@@ -106,6 +106,7 @@ export class DialogElementsExampleDialog {
         next:(newPos:Post) => {this.router.navigate(['/comunidad'])},
         error:error=>{console.error("eror",error);},complete:()=>{}});
       this.publishForm.reset();
+
   }
  }
 }

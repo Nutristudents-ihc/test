@@ -12,6 +12,7 @@ import { loginResponse } from '../interface/login.interface';
 import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth_service/auth.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-forms',
@@ -28,7 +29,7 @@ export class FormsComponent {
  loginForm!: FormGroup;
   errorMessage = '';
 
-  constructor(private fb:FormBuilder,private loginSer:LoginService,private authService: AuthService) {
+  constructor(private fb:FormBuilder,private loginSer:LoginService,private authService: AuthService,private cookie:CookieService) {
       merge(this.user.statusChanges, this.user.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.userErrorMessage())
@@ -95,6 +96,7 @@ export class FormsComponent {
           console.log("Account encontrada");
           const username = this.accounts[i].user;
           this.authService.login(username);
+          this.cookie.set('user', username, 1);
           this.router.navigate([''])
       }
     }

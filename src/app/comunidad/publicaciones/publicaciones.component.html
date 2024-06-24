@@ -17,6 +17,7 @@
         <button mat-button><mat-icon class="icon_color">favorite</mat-icon></button>
         <button mat-button><mat-icon class="icon_color">comment</mat-icon></button>
         <button mat-button><mat-icon class="icon_color">share</mat-icon></button>
+        <button mat-button *ngIf="post.user==username" (click)="confirmDelete(post.id)"><mat-icon class="delete_color">delete</mat-icon></button>
       </mat-card-actions>
       <p class="like_counter">Likes: {{post.likes}}</p>
     </mat-card-content>

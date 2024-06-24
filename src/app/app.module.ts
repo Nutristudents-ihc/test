@@ -20,8 +20,9 @@ import { DietasModule } from './dietas/dietas.module'
 import { FormsComponent } from './login/forms/forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { BtnCrearComponent } from './comunidad/btn-crear/btn-crear.component';
 
-
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,10 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 
 
 
+
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),[CookieService]
   ],
   bootstrap: [AppComponent]
 })

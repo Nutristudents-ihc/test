@@ -12,7 +12,7 @@ import { loginResponse } from '../interface/login.interface';
 import { LoginService } from './services/login.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth_service/auth.service';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-forms',
@@ -29,7 +29,7 @@ export class FormsComponent {
  loginForm!: FormGroup;
   errorMessage = '';
 
-  constructor(private fb:FormBuilder,private loginSer:LoginService,private authService: AuthService) {
+  constructor(private fb:FormBuilder,private loginSer:LoginService,private authService: AuthService,private cookie:CookieService) {
       merge(this.user.statusChanges, this.user.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.userErrorMessage())
@@ -45,6 +45,7 @@ export class FormsComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.loadAcc();
+
   }
   accounts:loginResponse[] = [];
   loadAcc(){
@@ -93,16 +94,14 @@ export class FormsComponent {
       for (let i = 0; i < this.accounts.length; i++) {
         if ((newAccount.email==this.accounts[i].email || newAccount.email==this.accounts[i].user) && newAccount.pass==this.accounts[i].pass) {
           console.log("Account encontrada");
-          this.success=true;
-          this.authService.login();
+          const username = this.accounts[i].user;
+          this.authService.login(username);
+          this.cookie.set('user', username, 1);
           this.router.navigate([''])
-        } else {
-          console.log("Account no encontrada");
-          this.success=false;
-        }
-
       }
     }
+      this.success=false;
+      console.log("Account no encontrada");
 
   }
-}
+}}

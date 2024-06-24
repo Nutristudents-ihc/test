@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'seguimiento', loadChildren: () => import('./seguimiento/seguimiento.module').then(m => m.SeguimientoModule) },
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'dietas',loadChildren:()=>import('./dietas/dietas.module').then(m=> m.DietasModule)},
+  { path: 'perfil', loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilModule) },
 ];
 
 @NgModule({

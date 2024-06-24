@@ -1,13 +1,21 @@
 <header>
   <nav>
-      <img src="images/logo-peak.png" alt="Logo de Peak">
+    <img src="assets/images/logo-peak.png" alt="Logo de Peak">
 
-      <ul class="menu">
-          <li class="menu__item"><a routerLink="" routerLinkActive="active">HOME</a></li>
-          <li class="menu__item"><a routerLink="dietas" routerLinkActive="active">DIETA</a></li>
-          <li class="menu__item"><a routerLink="comunidad" routerLinkActive="active">COMUNIDAD</a></li>
-          <li class="menu__item"><a routerLink="seguimiento" routerLinkActive="active">SEGUIMIENTO</a></li>
-          <li class="menu__item"><a class="btn__sign_in" routerLink="login" routerLinkActive="active">USUARIO</a></li>
-      </ul>
+    <ul class="menu">
+      <li class="menu__item menu__item_1" ><a routerLink="" routerLinkActive="active">HOME</a></li>
+      <li class="menu__item menu__item_1" ><a routerLink="dietas" routerLinkActive="active">DIETA</a></li>
+      <li class="menu__item menu__item_1" ><a routerLink="comunidad" routerLinkActive="active">COMUNIDAD</a></li>
+      <li class="menu__item menu__item_1" ><a routerLink="seguimiento" routerLinkActive="active">SEGUIMIENTO</a></li>
+      <li class="menu__item menu__item_1" *ngIf="!isAuthenticated">
+        <a class="btn btn__sign_in" routerLink="login" routerLinkActive="active">USUARIO</a>
+      </li>
+      <li class="menu__item menu__item_1" *ngIf="isAuthenticated">
+        <a class="btn btn__sign_in" (click)="ingresarPerfil()">Bienvenido, {{this.username}}</a>
+      </li>
+      <li class="menu__item menu__item_2" *ngIf="isAuthenticated">
+        <a class="btn btn__sign_out" (click)="logout()">LOGOUT</a>
+      </li>
+    </ul>
   </nav>
 </header>

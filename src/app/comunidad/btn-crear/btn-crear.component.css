@@ -1,0 +1,39 @@
+.mat-custom-color{
+  background-color: #95D907;
+  color:white;
+  font-weight: bold;
+  width: 15%;
+  font-size: larger;
+  position: fixed;
+  bottom: -10px;
+  left: 20px;
+  z-index: 100;
+}
+.mat-custom-send{
+  background-color: #95D907;
+  color:white;
+  width: 40%;
+}
+.mat-custom-send[disabled]{
+  background-color:#636363!important;
+  color:white;
+  width: 40%;
+}
+.dialog-container{
+  width: 500px
+}
+
+.form {
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.inputs {
+  width: 80%;
+  margin: 10px 0;
+}
+

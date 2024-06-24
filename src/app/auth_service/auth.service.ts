@@ -8,8 +8,8 @@ export class AuthService {
   private isAuthenticatedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isAuthenticated$: Observable<boolean> = this.isAuthenticatedSubject.asObservable();
 
-  private usernameSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
-  public username$: Observable<string | null> = this.usernameSubject.asObservable();
+  private usernameSubject: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  public username$: Observable<string> = this.usernameSubject.asObservable();
 
   constructor() {}
 
@@ -20,14 +20,14 @@ export class AuthService {
 
   logout(): void {
     this.isAuthenticatedSubject.next(false);
-    this.usernameSubject.next(null);
+    this.usernameSubject.next("");
   }
 
   isAuthenticated(): boolean {
     return this.isAuthenticatedSubject.value;
   }
 
-  getUsername(): string | null {
+  getUsername(): string {
     return this.usernameSubject.value;
   }
 }

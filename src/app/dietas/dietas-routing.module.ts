@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DietasComponent } from './dietas.component';
-import { TiposComidaComponent } from './tipos-comida.component';
-
+import { DietasComponent } from './components/dietas/dietas.component';
+import { TiposComidaComponent } from './components/tipos-comida/tipos-comida.component';
 
 const routes: Routes = [
   { path: '', component: DietasComponent },
   { path: 'tipos-comida', component: TiposComidaComponent }
-
 ];
 
 @NgModule({

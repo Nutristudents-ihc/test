@@ -1,13 +1,11 @@
 <mat-horizontal-stepper linear>
   <mat-step [stepControl]="personalInfoForm">
-    <form [formGroup]="personalInfoForm" class="step-form">
+    <form [formGroup]="personalInfoForm">
       <h2>¿CÓMO ERES?</h2>
       <div class="form-group">
         <label for="sexo">SEXO</label>
-        <div class="button-group">
-          <button type="button" (click)="personalInfoForm.patchValue({ sexo: 'F' })" [class.selected]="personalInfoForm.value.sexo === 'F'">F</button>
-          <button type="button" (click)="personalInfoForm.patchValue({ sexo: 'M' })" [class.selected]="personalInfoForm.value.sexo === 'M'">M</button>
-        </div>
+        <button type="button" (click)="personalInfoForm.patchValue({ sexo: 'F' })">F</button>
+        <button type="button" (click)="personalInfoForm.patchValue({ sexo: 'M' })">M</button>
       </div>
       <div class="form-group">
         <label for="edad">EDAD</label>
@@ -25,21 +23,19 @@
         <label for="grasaCorporal">TU GRASA CORPORAL (OPCIONAL)</label>
         <input id="grasaCorporal" formControlName="grasaCorporal" type="number" placeholder="Escribe tu grasa corporal">
       </div>
-      <div class="button-group">
+      <div>
         <button mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="comidaForm">
-    <form [formGroup]="comidaForm" class="step-form">
-      <h2>¿QUÉ TIPOS DE COMIDA PUEDES COMER?</h2>
-      <div *ngFor="let tipo of tiposComida" class="form-group">
-        <button type="button" (click)="onToggleSelect(tipo)" [class.selected]="tipo.selected">{{ tipo.name }}</button>
-      </div>
-      <div class="button-group">
-        <button mat-button matStepperPrevious>Atrás</button>
-        <button mat-button (click)="onSubmit()">Enviar</button>
-      </div>
-    </form>
+    <h2>¿QUÉ TIPOS DE COMIDA PUEDES COMER?</h2>
+    <div *ngFor="let tipo of tiposComida" class="form-group">
+      <button type="button" (click)="onToggleSelect(tipo)" [class.selected]="tipo.selected">{{ tipo.name }}</button>
+    </div>
+    <div class="form-buttons">
+      <button mat-button matStepperPrevious>Atrás</button>
+      <button mat-button (click)="onSubmit()">Enviar</button>
+    </div>
   </mat-step>
 </mat-horizontal-stepper>

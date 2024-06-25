@@ -12,6 +12,7 @@ h2 {
 
 .form-group {
   margin: 1em 0;
+  justify-content: center;
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -64,4 +65,14 @@ mat-horizontal-stepper {
 
 mat-step {
   width: 100%;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  margin: 0 10px;
 }

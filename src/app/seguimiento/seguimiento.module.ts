@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SeguimientoRoutingModule } from './seguimiento-routing.module';
-import { SeguimientoComponent } from './seguimiento.component';
-
+import { BuscarObjetivosComponent } from './components/buscar-objetivos/buscar-objetivos.component';
+import { VerObjetivosComponent } from './components/ver-objetivos/ver-objetivos.component';
+import { SuccessDialogComponent } from './forms/success-dialog/success-dialog.component';
+import { HomeComponent } from './components/home/home.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    SeguimientoComponent
+    BuscarObjetivosComponent,
+    VerObjetivosComponent,
+    SuccessDialogComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    SeguimientoRoutingModule
+    SeguimientoRoutingModule,
+    MatDialogModule,
+    MatButtonModule
   ]
 })
 export class SeguimientoModule { }

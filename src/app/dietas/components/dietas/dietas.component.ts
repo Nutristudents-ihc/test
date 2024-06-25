@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DietasService } from '../../services/dietas.service';
+import { DietasData } from '../../interfaces/dietas.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { SuccessDialogComponent } from '../forms/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-dietas',
@@ -18,7 +23,12 @@ export class DietasComponent implements OnInit {
     { name: 'Pescado', selected: false }
   ];
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(
+    private _formBuilder: FormBuilder, 
+    private dietasService: DietasService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.personalInfoForm = this._formBuilder.group({
@@ -39,9 +49,20 @@ export class DietasComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Formulario enviado', {
-      personalInfo: this.personalInfoForm.value,
-      tiposComida: this.tiposComida.filter(t => t.selected)
-    });
+    const selectedComidas = this.tiposComida.filter(t => t.selected).map(t => t.name);
+    const dietasData: DietasData = {
+      ...this.personalInfoForm.value,
+      tiposComida: selectedComidas
+    };
+
+    this.dietasService.sendDietasData(dietasData).subscribe(
+      response => {
+        console.log('Datos enviados exitosamente', response);
+        this.dialog.open(SuccessDialogComponent);
+      },
+      error => {
+        console.error('Error al enviar los datos', error);
+      }
+    );
   }
 }

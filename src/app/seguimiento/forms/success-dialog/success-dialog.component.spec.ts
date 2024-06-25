@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DietasComponent } from './dietas.component';
+import { SuccessDialogComponent } from './success-dialog.component';
 
-describe('DietasComponent', () => {
-  let component: DietasComponent;
-  let fixture: ComponentFixture<DietasComponent>;
+describe('SuccessDialogComponent', () => {
+  let component: SuccessDialogComponent;
+  let fixture: ComponentFixture<SuccessDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DietasComponent]
+      declarations: [SuccessDialogComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DietasComponent);
+    fixture = TestBed.createComponent(SuccessDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

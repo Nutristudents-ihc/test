@@ -23,14 +23,11 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 import { BtnCrearComponent } from './comunidad/btn-crear/btn-crear.component';
 
 import { CookieService } from 'ngx-cookie-service';
-import { HeaderComponent } from './perifl/header/header.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     FooterComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,

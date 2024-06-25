@@ -23,7 +23,6 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 import { BtnCrearComponent } from './comunidad/btn-crear/btn-crear.component';
 
 import { CookieService } from 'ngx-cookie-service';
-
 @NgModule({
   declarations: [
     AppComponent,

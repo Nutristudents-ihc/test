@@ -8,6 +8,8 @@
   bottom: -10px;
   left: 20px;
   z-index: 100;
+  transition-property: bottom;
+  transition-duration: 0.2s;
 }
 .mat-custom-send{
   background-color: #95D907;
@@ -37,3 +39,6 @@
   margin: 10px 0;
 }
 
+.mat-custom-color:hover{
+  bottom:0;
+}

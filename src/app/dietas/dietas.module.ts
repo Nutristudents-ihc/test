@@ -1,31 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-
-import { DietasComponent } from './dietas.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DietasRoutingModule } from './dietas-routing.module';
-import { TiposComidaComponent } from './tipos-comida.component';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
+import { DietasComponent } from './components/dietas/dietas.component';
+import { TiposComidaComponent } from './components/tipos-comida/tipos-comida.component';
+import { SuccessDialogComponent } from './components/forms/success-dialog/success-dialog.component';
 
 @NgModule({
   declarations: [
     DietasComponent,
-    TiposComidaComponent
+    TiposComidaComponent,
+    SuccessDialogComponent
   ],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
-    MatStepperModule,
-    MatInputModule,
+    FormsModule, // Import FormsModule
+    DietasRoutingModule,
+    MatSnackBarModule,
+    MatDialogModule,
     MatButtonModule,
-    DietasRoutingModule
-  ],
-  exports: [
-    DietasComponent,
-    TiposComidaComponent
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class DietasModule { }

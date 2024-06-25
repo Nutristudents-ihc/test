@@ -1,0 +1,6 @@
+<div class="objetivos-container">
+  <h2>Buscar Objetivos</h2>
+  <div *ngFor="let objetivo of objetivos" (click)="onAddObjetivo(objetivo)">
+    <button>{{ objetivo.nombre }}</button>
+  </div>
+</div>

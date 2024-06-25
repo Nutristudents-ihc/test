@@ -1,12 +1,16 @@
 <header>
   <nav>
-    <img src="assets/images/logo-peak.png" alt="Logo de Peak">
+    <img src="../../assets/images/logo-peak.png" alt="Logo de Peak">
 
     <ul class="menu">
-      <li class="menu__item menu__item_1" ><a routerLink="" routerLinkActive="active">HOME</a></li>
-      <li class="menu__item menu__item_1" ><a routerLink="dietas" routerLinkActive="active">DIETA</a></li>
-      <li class="menu__item menu__item_1" ><a routerLink="comunidad" routerLinkActive="active">COMUNIDAD</a></li>
-      <li class="menu__item menu__item_1" ><a routerLink="seguimiento" routerLinkActive="active">SEGUIMIENTO</a></li>
+
+      <li class="menu__item menu__item_1"><a routerLink="" routerLinkActive="active">HOME</a></li>
+      <li class="menu__item menu__item_1" *ngIf="!isAuthenticated"><a routerLink="not-auth" routerLinkActive="active">DIETA</a></li>
+      <li class="menu__item menu__item_1" *ngIf="!isAuthenticated"><a routerLink="not-auth" routerLinkActive="active">COMUNIDAD</a></li>
+      <li class="menu__item menu__item_1" *ngIf="!isAuthenticated"><a routerLink="not-auth" routerLinkActive="active">SEGUIMIENTO</a></li>
+      <li class="menu__item menu__item_1"  *ngIf="isAuthenticated"><a routerLink="dietas" routerLinkActive="active">DIETA</a></li>
+      <li class="menu__item menu__item_1"  *ngIf="isAuthenticated"><a routerLink="comunidad" routerLinkActive="active">COMUNIDAD</a></li>
+      <li class="menu__item menu__item_1"  *ngIf="isAuthenticated"><a routerLink="seguimiento" routerLinkActive="active">SEGUIMIENTO</a></li>
       <li class="menu__item menu__item_1" *ngIf="!isAuthenticated">
         <a class="btn btn__sign_in" routerLink="login" routerLinkActive="active">USUARIO</a>
       </li>

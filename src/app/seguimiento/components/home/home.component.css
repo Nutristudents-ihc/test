@@ -1,0 +1,28 @@
+.seguimiento-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .seguimiento-home h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  .seguimiento-home button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1em;
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .seguimiento-home button:hover {
+    background-color: #388E3C;
+  }

@@ -1,4 +1,6 @@
-
+.carta{
+  width: 80%;
+}
 .example-card {
   width: 80%;
   margin:30px auto;
@@ -6,7 +8,7 @@
 mat-card-title,mat-card-subtitle{
   font-family: Nunito !important;
   position:relative;
-  left: -40px;
+  left: 0px;
 }
 mat-card-title{
   font-size: 30px;
@@ -47,18 +49,4 @@ p{
 }
 .delete_color{
   color:#f11f0c;
-}
-.no_publicaciones{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 10%;
-}
-.no_publicaciones h2{
-  font-weight: bold;
-}
-.no_publicaciones p{
-  color:#696363;
-  font-size:x-large;
 }

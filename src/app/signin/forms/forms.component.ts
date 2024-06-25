@@ -37,7 +37,7 @@ export class FormsComponent {
       this.registerForm = this.fb.group({
         user:['', [Validators.required]],
         email:['', [Validators.required, Validators.email]],
-        pass: ['', [Validators.required, Validators.minLength(12)]],
+        pass: ['', [Validators.required, Validators.minLength(8)]],
         confirmPass: ['', Validators.required]
       }, { validator: this.passwordMatchValidator });
   }
@@ -124,7 +124,7 @@ export class FormsComponent {
     if (pass.hasError('required')) {
       this.errorMessage3 = 'Debes llenar este campo';}
       else if (pass.hasError('minlength')) {
-        this.errorMessage3 = 'La contraseña debe tener al menos 12 caracteres';
+        this.errorMessage3 = 'La contraseña debe tener al menos 8 caracteres';
       }
     else {
       this.errorMessage3 = '';

@@ -1,11 +1,14 @@
 .container{
+  margin: 0;
+  padding: 0;
   width: 100%
 }
 .banner{
+  margin:0;
   height: 10%;
   width: 100%;
   background-color: #e392dc;
-  padding: 80px;
+  padding: 5em 0;
 }
 .pfp{
 
@@ -19,6 +22,7 @@
   background-color: #dbef83;
 }
 .container p{
+  width: 20%;
   position: relative;
   right: -76px;
   top: -60px;

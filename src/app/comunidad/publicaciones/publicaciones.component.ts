@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
   selector: 'app-publicaciones',
   templateUrl: './publicaciones.component.html',
   styleUrls: ['./publicaciones.component.css'],
+  standalone:false
 })
 export class PublicacionesComponent implements OnInit {
   username: string = "";

@@ -5,8 +5,10 @@ import { PerfilRoutingModule } from './perfil-routing.module';
 import { PerfilComponent } from './perfil.component';
 import { PostsComponent } from './posts/posts.component';
 import { HeaderComponent } from './header/header.component';
-import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardModule, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogActions } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -18,13 +20,9 @@ import { MatIcon } from '@angular/material/icon';
   imports: [
     CommonModule,
     PerfilRoutingModule,
-    MatCard,
+    MatCardModule, MatButtonModule,
     MatIcon,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardContent,
-    MatCardActions,
-    MatCardTitle
+    MatDialogActions
   ]
 })
 export class PerfilModule { }

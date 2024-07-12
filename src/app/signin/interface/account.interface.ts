@@ -1,6 +1,5 @@
 export interface Account{
-  id:number;
-  user:String;
-  email:String;
-  pass:String;
+  user:string;
+  email:string;
+  pass:string;
 }

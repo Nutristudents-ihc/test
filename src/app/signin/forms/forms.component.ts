@@ -62,11 +62,8 @@ export class FormsComponent {
   success=true;
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log('Form Submitted', this.registerForm.value);
-
       const formValue = this.registerForm.value;
       const newAccount:Account={
-        id:0,
         user:formValue.user,
         email:formValue.email,
         pass:formValue.pass,

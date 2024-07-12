@@ -12,6 +12,7 @@ export class RegisterServiceService {
   constructor(private http:HttpClient) { }
 
   registerAccount(account:Account):Observable<Account> {
+    console.log("enviado",account)
     const url=`${this.apiUrl}/accounts`;
     return this.http.post<Account>(url,account);
   }

@@ -7,8 +7,8 @@
 }
 mat-card-title,mat-card-subtitle{
   font-family: Nunito !important;
-  position:relative;
-  left: 0px;
+  position: relative;
+  left:-50px;
 }
 mat-card-title{
   font-size: 30px;
